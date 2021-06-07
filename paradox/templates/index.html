@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link href="{% static 'paradox/index.css' %}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+    <h2> Welcome ! Challenger </h1>
+
+    <h5>
+        Welcome to the PARADOX HUNT! You are about to experience a classic cryptx hunt. You, a dauntless treasure-hunter, are
+        venturing into this dangerous land in search of wealth and adventure.<br>
+        Solve the quests and step closer to the goal.
+        <br><br><br>
+        <a class="m1" href="/question" target="_blank">
+            <button class="btn btn-primary">LET THE GAMES BEGIN !!!</button>
+        </a>
+    </h5>
+{% endblock %}

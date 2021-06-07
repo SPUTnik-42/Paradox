@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% load i18n %}
+{% load static %}
+
+
+{% block extra_css %}
+  <link href="{% static 'paradox/leaderboard.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+    <h1>Leaderboard</h1>
+    <h3>View your rankings.</h3>
+
+    <div id="leaderboard" class="container mb-4 mt-3">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Rank</th>
+                <th scope="col">Team</th>
+                <th scope="col">Level</th>
+                <th scope="col">School</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for team in user_teams %}
+                <tr>
+                {% if team.alpha.details.disqualified == 0 %}
+                    <th scope="row">{{ forloop.counter }}</th>
+                    
+                    <td>{{ team.teamName }}</td>
+                    <td>{{ team.level }}</td>
+                    <td>{{ team.alpha.details.isschool }}</td>   
+                    
+                {% endif %}
+                </tr>
+            {% endfor %}
+
+    </div>
+
+{% endblock %}

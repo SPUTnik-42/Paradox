@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+{% load i18n %}
+{% load static %}
+
+
+{% block extra_css %}
+    <link href="{% static 'paradox/leaderboard.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+    <div id="leaderboard">
+        <h1>ACTIVE TEAMS</h1>
+        <div id="leaderboard" class="container mb-4 mt-3">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Team</th>
+                    <th scope="col">Level</th>
+                    <th scope="col">School</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for team in user_teams %}
+                    <tr>
+                    {% if team.alpha.details.disqualified == 0 %}
+                        <th scope="row">{{ forloop.counter }}</th>
+                        
+                        <td>{{ team.teamName }}</td>
+                        <td>{{ team.level }}</td>
+                        <td>{{ team.alpha.details.isschool }}</td>
+                        <td>
+                            <form action="disqualify/{{ team.alpha.pk }}" method="post">
+                                {% csrf_token %}
+                                <input class="btn btn-danger" type="submit" value="disqualify" name="disqulaify">
+                            </form>
+                        </td>   
+                        
+                    {% endif %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>   
+    
+        </div>
+
+            <br><br><br>
+        
+    <div id="leaderboard">
+        <h1>DISQUALIFIED TEAMS</h1>
+        <div id="leaderboard" class="container mb-4 mt-3">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Team</th>
+                    <th scope="col">Level</th>
+                    <th scope="col">School</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for team in user_teams %}
+                    <tr>
+                    {% if team.alpha.details.disqualified == 1 %}
+                        <th scope="row">{{ forloop.counter }}</th>
+                        
+                        <td>{{ team.teamName }}</td>
+                        <td>{{ team.level }}</td>
+                        <td>{{ team.alpha.details.isschool }}</td>
+                        <td>
+                            <form action="undisqualify/{{ team.alpha.pk }}" method="post">
+                                {% csrf_token %}
+                                <input class="btn btn-primary" type="submit" value="un-disqualify" name="un-disqulaify">
+                            </form>
+                        </td>   
+                        
+                    {% endif %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>    
+        </div>
+    </div>
+    
+      
+
+{% endblock %}

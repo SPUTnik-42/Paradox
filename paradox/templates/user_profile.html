@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% load i18n %}
+{% load static %}
+
+
+{% block extra_css %}
+    <link href="{% static 'paradox/user_profile.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+
+
+{% block body %}
+    <div class="user-profile">
+       
+
+        <div>
+            <div class="container-level">
+                <div class="card" id="level">
+                    <div class="card-body" id="level-lvl">{{ user_data.details.level }}</div>
+                    <div class="card-body" id="level-txt">Level</div>
+                </div>
+            </div>
+            
+            <div class="card" id="details">
+                <div class="card-body">
+                    <div id="teamname">{{ user_data.details.team_members.teamName }}</div>
+                    <div id="players">
+                        <div id="username"> 
+                            <label>Player 1</label>
+                            <br>
+                            <input id="username_txt" value="{{ user_data.details.team_members.alpha }}" disabled type="text">
+                        </div>
+                        <div id="username">
+                            <label>Player 2</label>
+                            <br>
+                            <input id="username_txt" value="{{ user_data.details.team_members.beta }}" disabled type="text">
+                        </div>
+                        <div id="username">
+                            <label>Player 3</label>
+                            <br>
+                            <input id="username_txt" value="{{ user_data.details.team_members.gamma }}" disabled type="text">
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>         
+       
+               
+
+         
+        </div>
+    </div>
+{% endblock %}

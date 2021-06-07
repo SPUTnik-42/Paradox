@@ -1,0 +1,23 @@
+#question {
+    background-color: #fff;
+    border-radius: 1em;
+    width: 35%;
+    margin: 0 auto; 
+    margin-bottom: 30% !important;
+}
+#qs-text {
+    margin: 5%;
+    text-align: center;
+    font-family:fantasy;
+}
+.imgbox {
+    display: grid;
+    max-height: 100%;
+
+}
+.center-fit {
+    max-width: 95%;
+    max-height: 95%;
+    margin: 1em ;
+    border-radius: 1em;
+}

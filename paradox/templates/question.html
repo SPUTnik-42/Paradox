@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% load i18n %}
+{% load static %}
+
+
+{% block extra_css %}
+    <link href="{% static 'paradox/question.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    {% if message %}
+        <div class="alert alert-danger d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+            <div>
+                {{ message }}
+            </div>
+        </div>
+
+    {% endif %}
+
+    <div id="question" class="card">
+        <div class="card-img-top imgbox">
+        <img id="qs-img" class="center-fit" src="{{ question_data.img }}">
+        </div>
+        <div class="card-body" id="qs-text">
+            {{ question_data.question }}
+        </div>
+
+    </div>
+    
+    <form action="{% url 'question-page' %}" method="post" id="form">
+        {% csrf_token %}
+        <div class="form-group">
+            <input class="form-control" autofocus type="text" name="answer" placeholder="Answer">
+        </div>
+        <div class="button-container">
+            <input class="btn btn-primary " type="submit" value="Answer">
+        </div>
+    </form>
+
+
+
+{% endblock %}

@@ -1,0 +1,12 @@
+html, body{
+    background: #eaeaea;
+}
+
+nav {
+    margin: 2em;
+    background-color: #fff;
+    border-radius: 1em;
+    margin-right: 15% !important;
+    margin-left: 15% !important;
+    padding-left: 2.5% !important;
+}

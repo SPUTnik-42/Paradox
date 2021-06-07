@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% load i18n %}
+{% load static %}
+
+
+{% block extra_css %}
+    <link href="{% static 'paradox/leaderboard.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div id="leaderboard">
+        <h1>LOG of TEAMS</h1>
+        <div id="leaderboard" class="container mb-4 mt-3">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Team</th>
+                    <th scope="col">Level</th>
+                    <th scope="col">Action</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Time</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for log in log_data %}
+                    <tr>
+                    
+                        <th scope="row">{{ forloop.counter }}</th>
+                        
+                        <td>{{ log.username }}</td>
+                        <td>{{ log.level }}</td>
+                        <td>{{ log.action }}</td>
+                        <td>{{ log.category }}</td> 
+                        <td>{{ log.time }}</td>  
+                        
+                    
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>    
+        </div>
+    </div>
+   
+    
+
+{% endblock %}

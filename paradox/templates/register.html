@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <h2 style="padding-left: 45%;">Register</h2>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'register' %}" method="post" style="padding: 5%; padding-left: 5%;">
+        {% csrf_token %}
+        <div class="form-group">
+            <input class="form-control" autofocus type="text" name="teamName" placeholder="TeamName">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" name="school" placeholder="School">
+        </div>
+        <div>
+            <h3>Participitant 1</h3>
+            <div class="form-group">
+                <input class="form-control" autofocus type="text" name="username-p1" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="email" name="email-p1" placeholder="Email Address">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="number" name="class-p1" placeholder="Class">
+            </div>
+
+        </div>
+        <div>
+            <h3>Participitant 2</h3>
+            <div class="form-group">
+                <input class="form-control" autofocus type="text" name="username-p2" placeholder="Username" >
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="email" name="email-p2" placeholder="Email Address" >
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="number" name="class-p2" placeholder="Class" >
+            </div>
+
+        </div>
+        <div>
+            <h3>Participitant 3</h3>
+            <div class="form-group">
+                <input class="form-control" autofocus type="text" name="username-p3" placeholder="Username" >
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="email" name="email-p3" placeholder="Email Address" >
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="number" name="class-p3" placeholder="Class" >
+            </div>
+
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" name="password" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
+        </div>
+        <input class="btn btn-primary" type="submit" value="Register">
+    </form>
+
+    <h7 style="padding-left: 5%;">Already have an account? <a href="{% url 'login' %}">Log In here.</a></h7>
+
+{% endblock %}

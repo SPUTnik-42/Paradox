@@ -1,0 +1,6 @@
+capstone_env
+__PYCACHE__/
+vscode
+.env
+py_cache/
+

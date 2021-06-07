@@ -1,0 +1,33 @@
+
+h2 {
+    font-family:fantasy;
+    font-weight: 600;
+    text-align: center;
+    font-size:70px;
+    margin-top: 5%;
+}
+
+h5 {
+    font-family:fantasy;
+    font-weight: 600;
+    text-align: center;
+    font-size:25px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top:5%;
+}
+button {
+    font-size:30px !important;
+    transform: translateY(0px);
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+button:hover {
+    background: rgb(1, 9, 82);
+    background-size: 40px 40px;
+    background-position: -19px -19px;
+    max-width: 100%;
+    overflow-x: hidden;
+}
